@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'DIGITALL';
+  src: url('../fonts/01\ Digitall.ttf') format('woff2'),
+       url('../fonts/01\ Digitall.ttf') format('woff');
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.nameCompany{
+  font-family: 'DIGITALL',Bold;
+  font-size: 200px;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/fondos/futurist.jfif');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.logo{
+ width: 35%; 
+}
