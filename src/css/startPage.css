@@ -1,41 +1,83 @@
 @font-face {
   font-family: 'DIGITALL';
-  src: url('../fonts/01\ Digitall.ttf') format('woff2'),
-       url('../fonts/01\ Digitall.ttf') format('woff');
+  src: url('../fonts/01\ Digitall.ttf') format('truetype');
+  /* Puedes agregar formatos adicionales según el tipo de archivo de tu fuente */
+}
+@font-face {
+  font-family: 'HEMING';
+  src: url('../fonts/heming-variable.ttf') format('truetype');
+  /* Puedes agregar formatos adicionales según el tipo de archivo de tu fuente */
+}
+:root {
+  --azul: #39A2DB;
+  --astrong: #073944;
+  --gris: #EFF4F7;
+  --blanco: #FFFFFF;
 }
 
-.container {
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
-  width: 100%;
-  height: 100%;
 }
-.nameCompany{
-  font-family: 'DIGITALL',Bold;
-  font-size: 200px;
-}
-.background {
+
+.blur-bg {
+  background-image: url('../img/fondos/futurist-2.jfif');
+  background-size: cover;
+  filter: blur(10px);
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../img/fondos/futurist.jfif');
-  background-size: cover;
-  background-position: center;
-  filter: blur(5px);
   z-index: -1;
 }
 
 .content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  text-align: center;
+  z-index: 1;
 }
-.logo{
- width: 35%; 
+
+.logo {
+  width: 90%; /* Ajusta el tamaño del logo según tus necesidades */
+}
+
+.buttons {
+  margin-top: 20px;
+}
+.logoName{
+  padding: 0%;
+  margin: 0%;
+  color: #fff;
+  font-family: 'DIGITALL';
+  font-size: 10rem;
+  letter-spacing: 2rem;
+  font-style: bold;
+}
+.button {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.logo.rotate {
+  transition: transform 0.5s ease;
+  transform: rotate(360deg);
 }
