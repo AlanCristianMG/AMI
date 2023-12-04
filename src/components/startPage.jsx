@@ -19,8 +19,8 @@ function StartPage() {
         <h1 className='logoName'>AMI</h1>
         <p className='brandText'>
             Tu compañero en el camino hacia una vida más saludable. 
-            Con la mezcla de tecnología avanzada y un enfoque pensado en ti
-            <strong> ¡Es hora de cuidar de ti de una manera fácil y divertida! ¡Unete!</strong></p>
+            Con la mezcla de tecnología avanzada y un enfoque pensado en ti</p>
+           <p className='brandText'> <strong> ¡Es hora de cuidar de ti de una manera fácil y divertida! ¡Unete!</strong></p>
         <div className="buttons">
           <button class="button">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

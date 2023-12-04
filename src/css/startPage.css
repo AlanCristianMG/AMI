@@ -39,7 +39,7 @@ body {
 }
 
 .blur-bg {
-  background-image: url('../img/fondos/futurist-2.jfif');
+  background-image: url('../img/fondos/space.gif');
   background-size: cover;
   filter: blur(10px);
   position: absolute;
@@ -56,28 +56,30 @@ body {
 }
 
 .logo {
-  width: 40%; /* Ajusta el tamaño del logo según tus necesidades */
+  width: 35%; /* Ajusta el tamaño del logo según tus necesidades */
+  filter: drop-shadow(1px 1px 3px rgba(169, 169, 169, 0.43));
 }
-
 .buttons {
   margin-top: 20px;
 }
 .logoName{
   padding: 0%;
   margin: 0%;
-  color: #fff;
+  color: var(--blanco);
   font-family: 'DIGITALL';
   font-size: 10rem;
   letter-spacing: 2rem;
   font-style: bold;
+  filter: drop-shadow(8px 8px 16px rgba(255, 255, 255, 0.533));
+
 }
 .button {
   margin-left: 5px;
   margin-right: 5px;
   padding: 10px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: #fff;
+  font-size: 1.2rem;
+  background-color: var(--azul);
+  color: var(--blanco);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -95,6 +97,8 @@ body {
   line-height: 1.6;
   color: var(--gris);
   font-family: 'LUNCHTYPE';
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* Media query para dispositivos más pequeños */
@@ -103,19 +107,22 @@ body {
       font-size: 14px;
   }
 }
+.brandText>strong{
+  filter: drop-shadow(8px 8px 16px rgb(234, 232, 232));
+}
 .button {
   background-color: #ffffff00;
-  color: #fff;
+  color:var(--blanco);
   width: 8.5em;
   height: 2.9em;
-  border: #3654ff 0.2em solid;
+  border: var(--azul) 0.2em solid;
   border-radius: 11px;
   text-align: right;
   transition: all 0.6s ease;
 }
 
 .button:hover {
-  background-color: #3654ff;
+  background-color: var(--azul);
   cursor: pointer;
 }
 
@@ -128,7 +135,7 @@ body {
 }
 
 .button:hover svg {
-  transform: translateX(5px);
+  transform: translateX(7px);
 }
 
 .text {
