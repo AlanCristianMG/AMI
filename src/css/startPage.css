@@ -56,7 +56,7 @@ body {
 }
 
 .logo {
-  width: 35%; /* Ajusta el tamaño del logo según tus necesidades */
+  width: 30%; /* Ajusta el tamaño del logo según tus necesidades */
   filter: drop-shadow(1px 1px 3px rgba(169, 169, 169, 0.43));
 }
 .buttons {
@@ -67,10 +67,10 @@ body {
   margin: 0%;
   color: var(--blanco);
   font-family: 'DIGITALL';
-  font-size: 10rem;
+  font-size: 12rem;
   letter-spacing: 2rem;
   font-style: bold;
-  filter: drop-shadow(8px 8px 16px rgba(255, 255, 255, 0.533));
+  filter: drop-shadow(8px 8px 16px rgb(255, 255, 255));
 
 }
 .button {
@@ -93,7 +93,7 @@ body {
 .brandText {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 150%;
+  font-size: 120%;
   line-height: 1.6;
   color: var(--gris);
   font-family: 'LUNCHTYPE';
@@ -127,12 +127,13 @@ body {
 }
 
 .button svg {
-  width: 1.6em;
-  margin: -0.2em 0.8em 1em;
+  width: 2em;
+  margin: 0 0.8em 1em;
   position: absolute;
   display: flex;
   transition: all 0.6s ease;
 }
+
 
 .button:hover svg {
   transform: translateX(7px);
