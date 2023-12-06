@@ -1,40 +1,45 @@
-import React, { useState } from 'react';
-import Login from '../components/login.jsx';
-import Register from '../components/register.jsx';
+// Importar React y los hooks necesarios desde la biblioteca React
+import React, { useEffect, useState } from 'react';
 
-const Auth = () => {
-  const [user, setUser] = useState(null);
+// Importar Axios para realizar solicitudes HTTP
+import axios from 'axios';
 
-  const handleLogin = (username) => {
-    // Aquí deberías realizar la autenticación con un backend real
-    setUser(username);
-  };
+// Definir el componente funcional App
+const App = () => {
+  // Definir un estado local 'roles' utilizando el hook useState
+  const [roles, setRoles] = useState([]);
 
-  const handleRegister = (username) => {
-    // Aquí deberías enviar la información del nuevo usuario a un backend real
-    setUser(username);
-  };
+  // Utilizar el hook useEffect para realizar la solicitud al backend cuando el componente se monta
+  useEffect(() => {
+    // Realizar una solicitud GET al servidor backend (asegúrate de usar el puerto correcto)
+    axios.get('http://localhost:3001')
+      .then(response => {
+        // Si la solicitud es exitosa, actualizar el estado 'roles' con los datos recibidos
+        setRoles(response.data);
+      })
+      .catch(error => {
+        // Si hay un error en la solicitud, imprimirlo en la consola
+        console.error('Error al obtener roles:', error);
+      });
+  }, []); // El segundo argumento vacío asegura que la solicitud se realice solo una vez al montar el componente
 
-  const handleLogout = () => {
-    setUser(null);
-  };
-
+  // Renderizar la interfaz de usuario del componente
   return (
     <div>
-      <h1>React Auth Template</h1>
-      {user ? (
-        <div>
-          <p>Welcome, {user}!</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <Login handleLogin={handleLogin} />
-          <Register handleRegister={handleRegister} />
-        </div>
-      )}
+      {/* Encabezado */}
+      <h1>Roles de Usuario</h1>
+
+      {/* Lista de roles */}
+      <ul>
+          {roles.map(role => (
+            <li key={role.id_rol}>{role.Nombre}</li>
+          ))}
+      </ul>
+
     </div>
   );
 };
 
-export default Auth;
+// Exportar el componente App para su uso en otros archivos
+export default App;
+

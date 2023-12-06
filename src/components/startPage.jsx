@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';  // Importa useNavigate
 import '../css/startPage.css';
 import Logo from '../img/logo/Logo-White-sf.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 function StartPage() {
-  const [isRotating, setIsRotating] = useState(false);
+  const [isRotating, setIsRotating] = React.useState(false);
+  const navigate = useNavigate();  // Obtiene la función de navegación desde react-router-dom
+
+  const handleNavigate = () => {
+    // Lógica o acciones antes de navegar (si es necesario)
+    // Utiliza la función navigate para realizar la navegación
+    navigate('/auth');
+  };
 
   return (
     <div className="app">
@@ -14,20 +23,22 @@ function StartPage() {
           src={Logo}
           alt="Logo"
           className={`logo ${isRotating ? 'rotate' : ''}`}
-          onClick={() => {(isRotating)?setIsRotating(false):setIsRotating(true)}}
-          
+          onClick={() => setIsRotating(!isRotating)}
         />
         <h1 className='logoName'>AMI</h1>
         <p className='brandText'>
-            Tu compañero en el camino hacia una vida más saludable. 
-            Con la mezcla de tecnología avanzada y un enfoque pensado en ti</p>
-           <p className='brandText'> <strong> ¡Es hora de cuidar de ti de una manera fácil y divertida! ¡Unete!</strong></p>
+          Tu compañero en el camino hacia una vida más saludable. 
+          Con la mezcla de tecnología avanzada y un enfoque pensado en ti
+        </p>
+        <p className='brandText'> 
+          <strong> ¡Es hora de cuidar de ti de una manera fácil y divertida! ¡Únete!</strong>
+        </p>
         <div className="buttons">
-          <button class="button">
-          <FontAwesomeIcon className='ArrowButton' icon={faArrowRight} />
-          <div class="text">
-            Unirse
-          </div>
+          <button className="button" onClick={handleNavigate}>
+            <FontAwesomeIcon className='ArrowButton' icon={faArrowRight} />
+            <div className="text">
+              Unirse
+            </div>
           </button>
         </div>
       </div>

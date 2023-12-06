@@ -1,11 +1,16 @@
 import React from 'react';
-import StartPage from './components/startPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import StartPage from './components/startPage.jsx';
+import Auth from './auth/auth.jsx';
 
 function App() {
   return (
-    <div>
-      <StartPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/auth" element={<Auth />} />
+      </Routes>
+    </Router>
   );
 }
 
