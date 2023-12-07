@@ -11,7 +11,7 @@ const Login = ({ onLogin }) => {
   const handleLogin = async () => {
     try {
       // Realiza una solicitud HTTP POST al endpoint '/api/login' con las credenciales del usuario
-      const response = await axios.get('http://localhost', { email, password });
+      const response = await axios.get('http://localhost:3001', { email, password });
 
       // Extrae el token del objeto de respuesta
       const { token } = response.data;
