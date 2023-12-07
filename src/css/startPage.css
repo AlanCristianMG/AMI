@@ -29,6 +29,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
 .app {
   display: flex;
   align-items: center;
@@ -141,4 +150,21 @@ body {
 
 .text {
   margin: 0 1.5em
+}
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }

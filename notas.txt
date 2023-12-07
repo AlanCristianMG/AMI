@@ -22,4 +22,4 @@ Despues ejecutar:
 Se crearan las tablas
 Para el iniciar el sistema se tiene que levantar:
     El servidor de React con : npm start
-    El servidor del backend con : node ./src/servces/server.js
+    El servidor del backend con : node ./src/services/server.js

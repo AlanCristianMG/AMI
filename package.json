@@ -25,6 +25,7 @@
     "react-native-screens": "^3.27.0",
     "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "sequelize": "^6.35.1",
     "sequelize-cli": "^6.6.2",
     "web-vitals": "^2.1.4"

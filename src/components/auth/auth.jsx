@@ -1,47 +1,78 @@
-// Componente de Inicio de Sesión
 import React, { useState } from 'react';
-import axios from 'axios';
+import { CSSTransition } from 'react-transition-group';
+import '../../css/auth.css';
 
-const Login = ({ onLogin }) => {
-  // Estado local para almacenar el correo electrónico y la contraseña ingresados por el usuario
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  // Función asincrónica para manejar el evento de inicio de sesión
-  const handleLogin = async () => {
-    try {
-      // Realiza una solicitud HTTP POST al endpoint '/api/login' con las credenciales del usuario
-      const response = await axios.get('http://localhost:3001', { email, password });
-
-      // Extrae el token del objeto de respuesta
-      const { token } = response.data;
-
-      // Almacena el token en el almacenamiento local (localStorage) para mantener la sesión del usuario
-      localStorage.setItem('token', token);
-
-      // Llama a la función proporcionada como prop para manejar el inicio de sesión en el componente principal
-      onLogin();
-    } catch (error) {
-      // Captura y maneja cualquier error que pueda ocurrir durante el inicio de sesión
-      console.error('Error de inicio de sesión', error);
-    }
-  };
-
-  // Renderiza el componente de inicio de sesión
+// Componente de formulario de inicio de sesión
+function LoginForm({ onSwitchToRegister }) {
   return (
-    <div>
-      <h2>Iniciar Sesión</h2>
-      {/* Input para el correo electrónico con manejo del cambio en el estado local */}
-      <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
+    <form className='form'>
+      <label>
+        Username:
+        <input type="text" name="username" />
+      </label>
+      <label>
+        Password:
+        <input type="password" name="password" />
+      </label>
+      <input type="submit" value="Submit" />
+      <button type="button" onClick={onSwitchToRegister}>
+        Switch to Register
+      </button>
+    </form>
+  );
+}
 
-      {/* Input para la contraseña con manejo del cambio en el estado local */}
-      <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+// Componente de formulario de registro
+function RegisterForm({ onSwitchToLogin }) {
+  return (
+    <form className='form'>
+      <label>
+        Username:
+        <input type="text" name="username" />
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" />
+      </label>
+      <label>
+        Password:
+        <input type="password" name="password" />
+      </label>
+      <input type="submit" value="Submit" />
+      <button type="button" onClick={onSwitchToLogin}>
+        Switch to Login
+      </button>
+    </form>
+  );
+}
 
-      {/* Botón que desencadena la función handleLogin al hacer clic */}
-      <button onClick={handleLogin}>Iniciar Sesión</button>
+// Componente principal de autenticación
+const Auth = () => {
+  const [isLogin, setIsLogin] = useState(true);
+
+  return (
+    <div className="containerBack">
+      <CSSTransition
+        in={isLogin}
+        timeout={300}
+        classNames="fade"
+        unmountOnExit
+      >
+        {/* Enviar una función para cambiar el estado directamente */}
+        <LoginForm onSwitchToRegister={() => setIsLogin(false)} />
+      </CSSTransition>
+
+      <CSSTransition
+        in={!isLogin}
+        timeout={300}
+        classNames="fade"
+        unmountOnExit
+      >
+        {/* Enviar una función para cambiar el estado directamente */}
+        <RegisterForm onSwitchToLogin={() => setIsLogin(true)} />
+      </CSSTransition>
     </div>
   );
 };
 
-// Exporta el componente para su uso en otros lugares de la aplicación
-export default Login;
+export default Auth;
