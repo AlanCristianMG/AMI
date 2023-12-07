@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StartPage from './components/startPage.jsx';
-import Auth from './auth/auth.jsx';
+import Auth from './components/auth/auth.jsx';
 
 function App() {
   return (
