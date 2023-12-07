@@ -4,7 +4,9 @@
     "password": "",
     "database": "ami",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "sequelize_data"
   },
   "test": {
     "username": "root",
